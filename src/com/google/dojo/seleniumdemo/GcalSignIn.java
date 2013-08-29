@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static org.junit.Assert.*;
 
@@ -18,6 +17,7 @@ public class GcalSignIn {
 		   if (use_firefox) {
 			   driver = new FirefoxDriver();
 		   } else {
+			   // Downloaded as per the instructions here: https://code.google.com/p/selenium/wiki/ChromeDriver
 			   System.setProperty("webdriver.chrome.driver", "/Users/domq/Downloads/chromedriver");
 			   driver = new ChromeDriver();
 		   }	       
