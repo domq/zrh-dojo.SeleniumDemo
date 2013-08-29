@@ -18,7 +18,7 @@ public class GcalSignIn {
 			   driver = new FirefoxDriver();
 		   } else {
 			   // Downloaded as per the instructions here: https://code.google.com/p/selenium/wiki/ChromeDriver
-			   System.setProperty("webdriver.chrome.driver", "/Users/domq/Downloads/chromedriver");
+			   System.setProperty("webdriver.chrome.driver", "/Users/domq/dojo/ChromeDriver/chromedriver");
 			   driver = new ChromeDriver();
 		   }	       
 
