@@ -4,13 +4,23 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 import static org.junit.Assert.*;
 
 public class GcalSignIn {
 	   @Test
 	   public void GcalSignInWrongCredentials() {
-	        WebDriver driver = new FirefoxDriver();
+		   WebDriver driver;
+		   boolean use_firefox = false;
+		   if (use_firefox) {
+			   driver = new FirefoxDriver();
+		   } else {
+			   System.setProperty("webdriver.chrome.driver", "/Users/domq/Downloads/chromedriver");
+			   driver = new ChromeDriver();
+		   }	       
 
 	        driver.get("http://www.google.com/calendar");
 	        
