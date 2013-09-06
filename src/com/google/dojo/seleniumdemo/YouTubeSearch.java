@@ -9,11 +9,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.Assert.*;
 
-public class GcalSignIn {
+public class YouTubeSearch {
 	   @Test
-	   public void GcalSignInWrongCredentials() {
+	   public void YTSearchGangnam() {
 		   WebDriver driver;
-		   boolean use_firefox = true;
+		   boolean use_firefox = false;
 		   if (use_firefox) {
 			   driver = new FirefoxDriver();
 		   } else {
@@ -22,18 +22,21 @@ public class GcalSignIn {
 			   driver = new ChromeDriver();
 		   }	       
 
-	        driver.get("http://www.google.com/calendar");
+	        driver.get("http://www.youtube.com");
 	        
 	        // Find the text input element by its name
-	        WebElement emailInput = driver.findElement(By.name("Email"));
-	        WebElement passwdInput = driver.findElement(By.name("Passwd"));
+	        WebElement searchBox = driver.findElement(By.id("masthead-search-term"));
+	        
 
 	        // Enter something to search for
-	        emailInput.sendKeys("random9999@gmail.com");
-	        passwdInput.sendKeys("Cheese!");
+	        searchBox.sendKeys("gangnam style");
+
 
 	        // Now submit the form. WebDriver will find the form for us from the element
-	        emailInput.submit();
-	        assertTrue(driver.getPageSource().contains("The username or password you entered is incorrect."));
+	        searchBox.submit();
+	        
+	        WebElement searchResults = driver.findElement(By.id("search-results"));
+	        WebElement firstResult = searchResults.findElements(By.className("yt-lockup-video")).get(0);
+	        assertTrue(firstResult.getText().contains("officialpsy"));
 	   }
 }
